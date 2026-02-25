@@ -1,0 +1,63 @@
+#include <stdio.h>
+#include <math.h>
+
+// Example function: f(x) = x^2
+double f(double x) {
+    return x * x;
+}
+
+int main() {
+    double x, h;
+    
+    // Input point and step size
+    printf("Enter the point x: ");
+    scanf("%lf", &x);
+    printf("Enter the step size h: ");
+    scanf("%lf", &h);
+
+    // Forward difference formula: f'(x) ≈ (f(x+h) - f(x)) / h
+    double forward = (f(x + h) - f(x)) / h;
+
+    // Backward difference formula: f'(x) ≈ (f(x) - f(x-h)) / h
+    double backward = (f(x) - f(x - h)) / h;
+
+    // Central difference formula: f'(x) ≈ (f(x+h) - f(x-h)) / (2h)
+    double central = (f(x + h) - f(x - h)) / (2 * h);
+
+    // Exact derivative for comparison: f'(x) = 2x
+    double exact = 2 * x;
+
+    printf("\nAt x = %.4lf with h = %.4lf:\n", x, h);
+    printf("Forward Difference  ≈ %.6lf\n", forward);
+    printf("Backward Difference ≈ %.6lf\n", backward);
+    printf("Central Difference  ≈ %.6lf\n", central);
+    printf("Exact Derivative    = %.6lf\n", exact);
+
+    return 0;
+}
+How It Works
+The program defines a function 
+𝑓
+(
+𝑥
+)
+=
+𝑥
+2
+.
+
+It asks the user for a point 
+𝑥
+ and a step size 
+ℎ
+.
+
+It calculates the derivative using:
+
+Forward difference
+
+Backward difference
+
+Central difference
+
+It also prints the exact derivative for comparison.
